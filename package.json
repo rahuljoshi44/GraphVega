@@ -1,0 +1,61 @@
+{
+  "name": "options-tool",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.57",
+    "@testing-library/jest-dom": "^5.11.8",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.6.0",
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.0",
+    "black-scholes": "^1.1.0",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.5.3",
+    "chart.js": "^2.9.4",
+    "clone": "^2.1.2",
+    "concurrently": "^5.3.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "greeks": "^1.0.0",
+    "implied-volatility": "^1.0.0",
+    "js-polynomial-regression": "^0.9.1",
+    "nodemon": "^2.0.6",
+    "path": "^0.12.7",
+    "react": "^17.0.1",
+    "react-bootstrap": "^1.4.0",
+    "react-chartjs-2": "^2.11.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.1",
+    "recharts": "^2.0.3",
+    "regression": "^2.0.1",
+    "web-vitals": "^0.2.4"
+  },
+  "scripts": {
+    "start": "concurrently -n client,server -c blue,red \"react-scripts start\" \"nodemon server/app.js\"",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
