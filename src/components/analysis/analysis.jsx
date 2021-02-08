@@ -46,7 +46,8 @@ class Analysis extends Component {
         this.props.quote,
         this.props.quantity, 
         date, 
-      0);
+        0
+      );
       const maxDate = getMaxDate(this.props.positions.map(option => option.expiration_date));
       const maxDateNum = Math.ceil(daysTillExpiry(date, maxDate));
       var chartData = [];

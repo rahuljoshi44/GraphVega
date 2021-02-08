@@ -3,6 +3,7 @@ import {
   Row,
   Col,
   Container,
+  Image
 } from 'react-bootstrap';
 import {
   Card,
@@ -14,7 +15,6 @@ import OptionChain from './chain/optionChain';
 import Analysis from './analysis/analysis';
 import NavTabs from './navTabs';
 import axios from 'axios';
-import clone from 'clone';
 
 class Main extends Component {
   state = {
@@ -114,7 +114,9 @@ class Main extends Component {
       <Container>
         <Row>
           <Col sm={{span:4}}>
-            <h4 style={{marginTop:'10px'}}>GraphVega</h4>
+            <h4 style={{marginTop:'10px'}}>
+              GraphVega
+            </h4>
           </Col>
           <Col lg={{ span:4, offset:4 }}>
               <Search onValueChange={this.handleTickerChange}/>
