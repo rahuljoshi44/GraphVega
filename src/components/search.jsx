@@ -27,7 +27,7 @@ class Search extends Component {
 				.then((res) => {
 					if (res.data.securities && res.data.securities.security[0]) {
             var options = res.data.securities.security;
-            const upper = options.length > 6 ? 6 : options.length - 1;
+            const upper = options.length > 10? 10: options.length - 1;
             options = options.slice(0, upper);
             console.log(options)
 						this.setState({ options, loading: false });

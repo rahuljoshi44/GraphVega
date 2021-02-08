@@ -8,7 +8,7 @@ router.post("/search", async (req, res) => {
   request(
     {
       method: "get",
-      url: "https://sandbox.tradier.com/v1/markets/lookup",
+      url: "https://sandbox.tradier.com/v1/markets/search",
       qs: {
           q: req.body.ticker,
           exchanges: 'Q,N',
@@ -31,7 +31,6 @@ router.post("/search", async (req, res) => {
 router.post("/quote", async (req, res) => {
   const KEY = process.env.TRADIER_API_KEY;
   const symbol = req.body.ticker;
-  console.log(KEY)
   request(
     {
       method: "get",

@@ -47,8 +47,7 @@ class Main extends Component {
     var positions = [...this.state.positions];
     var found = false;
     for(var i = 0; i < positions.length; i++) {
-      if(positions[i].description === option.description
-        && positions[i].position === option.position){
+      if(positions[i].description === option.description){
         positions[i].quantity = positions[i].quantity + option.quantity;
         found = true;
         break;
