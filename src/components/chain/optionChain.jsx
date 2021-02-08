@@ -60,7 +60,7 @@ class OptionChain extends Component {
     this.setState({layout});
   }
   
-  handleAddPosition = (idx, optionType, positionType) => {
+  handleAddPosition = (idx, optionType, positionType, quantity) => {
     var option = {};
     var options = [];
 
@@ -76,12 +76,7 @@ class OptionChain extends Component {
 
     // Set position -> Long/Short
     option.position = positionType;
-    if (positionType === "long") {
-        option.quantity = 1;
-    }
-    else {  
-      option.quantity = -1;
-    }
+    option.quantity = quantity;
 
     // Set expiry time
     var dateTime = new Date(option.expiration_date);

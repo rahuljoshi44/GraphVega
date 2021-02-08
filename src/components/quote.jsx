@@ -49,7 +49,7 @@ const Quote = props => {
           value={props.quantity}
           defaultValue={0}
           onChange={props.onStockQuantityChange}
-          label="Shares" 
+          label="# of shares" 
           variant="outlined" 
         />
         <IconButton color="primary">

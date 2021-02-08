@@ -6,30 +6,33 @@ import {
   Col
 } from "react-bootstrap";
 import {
-  Button
+  Button,
+  TextField,
+  IconButton
 } from '@material-ui/core';
 import {
   Add,
   Remove,
+  
 } from '@material-ui/icons';
 
 const Option = props => {
-  // const [show, setShow] = useState(false);
-
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
   const [show, setShow] = useState(false);
   const handleClose = () => {
     setShow(false);
     setTimeout(() => {
-      // props.onClose();
     }, 500);
   };
   const handleShow = () => setShow(true);
 
-  const add = position => {
+  const [quantity, setQuantity] = useState(0);
+
+  const add = () => {
     setShow(false);
-    props.onAddPosition(props.index, props.option["option_type"], position);
+    const position = quantity > 0 ? "long" : "short";
+    props.onAddPosition(props.index, props.option["option_type"], position, quantity);
+    // const quantity = 0;
+    setQuantity(0);
   };
 
   const setAlign = () => {
@@ -70,6 +73,25 @@ const Option = props => {
     return data ? data : "N/A";
   }
 
+  const addOption = () => {
+    setQuantity(quantity + 1);
+  }
+  const removeOption = () => {
+    setQuantity(quantity - 1);
+  }
+
+  const changeQuantity = (event, value) => {
+    var quantity = Number(event.target.value);
+    setQuantity(quantity)
+  }
+
+  const setButtonColor = () => {
+    if(quantity >= 0)
+      return "primary";
+    else
+      return "secondary";
+  }
+
   return (
     <>
       <tr style={{ textAlign: 'center'}} onClick={handleShow}>
@@ -98,11 +120,11 @@ const Option = props => {
 							<h4 style={{ display: 'inline' }}>{props.option.last}</h4>
 							&nbsp;&nbsp;
 							<h5 className={getColor()} style={{ display: 'inline' }}>
-								{props.option.change}
+								{setSign()}{props.option.change}
 							</h5>
 							&nbsp;&nbsp;
 							<h5 className={getColor()} style={{ display: 'inline' }}>
-								({props.option.change_percentage}%)
+								({setSign()}{props.option.change_percentage}%)
 							</h5>
 						</Col>
 					</Row>
@@ -183,38 +205,33 @@ const Option = props => {
 						</Col>
 					</Row>
         </Modal.Body>
-
-
-
-
-
         <Modal.Footer>
+          <IconButton color="secondary" >
+            <Remove onClick={removeOption}/>
+          </IconButton>
+          <TextField
+            size="small"
+            value={quantity}
+            defaultValue={0}
+            onChange={changeQuantity}
+            inputProps={{ maxLength: "4px" }}
+            label="# of contracts" 
+            variant="outlined" 
+          />
+          <IconButton color="primary">
+            <Add onClick={addOption}/>
+          </IconButton>
           <Button
+            color={setButtonColor()}
             variant="outlined"
             size="small"
-            color="primary"
-            onClick={() => {
-              add("long");
-            }}
+            disabled={quantity==0}
+            onClick={() => add()}
           >
-            <Add fontSize="small"/>
-            <b>Long</b>
-          </Button>
-          &nbsp;
-          <Button
-            variant="outlined"
-            color="primary"
-            size="small"
-            onClick={() => {
-              add("short");
-            }}
-          >
-            <Remove fontSize="small"/>
-            <b>Short</b>
+            {quantity >= 0 ? "Buy" : "Sell"}
           </Button>
           &nbsp;
           <Button 
-            color="secondary" 
             onClick={handleClose} 
             size="small">
             &nbsp;

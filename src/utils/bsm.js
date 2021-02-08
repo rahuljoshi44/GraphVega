@@ -44,16 +44,14 @@ export const netProfitArray = (positions, quote, quantity, date, ivChange) => {
       netProfit[j].profit = round(netProfit[j].profit + array[j].profit);
     }
   }
-  console.log(netProfit);
   if(quantity != 0) {
     netProfit = netProfit.map(obj => (
       {
         underlying: obj.underlying,
-        price: round(obj.price + quantity * obj.underlying),
-        profit: round(obj.profit + quantity * (obj.underlying - quote.last))
+        price: round(obj.price*100 + quantity * obj.underlying),
+        profit: round(obj.profit*100 + quantity * (obj.underlying - quote.last))
       }
     ))
-    console.log(netProfit);
   }
   return netProfit;
 }
@@ -88,7 +86,7 @@ const optionPriceArray = (option, quote, date, volChange) => {
     optionPrice, quote.last, option.strike, daysDiff/365, 0.05, option.option_type
   ) + volChange/100;
 
-  daysDiff = Math.floor(daysTillExpiry(date, option.expiration_date));
+  daysDiff = daysTillExpiry(date, option.expiration_date);
   price = low;
   while(price < high) {
     optionPrice = bs.blackScholes(

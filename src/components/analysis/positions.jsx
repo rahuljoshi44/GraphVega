@@ -41,6 +41,7 @@ const Positions = props => {
                 <TableRow>
                   <TableCell>TYPE</TableCell>
                   <TableCell>QTY</TableCell>
+                  <TableCell>MARK</TableCell>
                   <TableCell>STRIKE</TableCell>
                   <TableCell>EXPIRY</TableCell>
                   <TableCell>IMP VOL</TableCell>
@@ -57,6 +58,7 @@ const Positions = props => {
                       <Chip label={option.option_type} color={chipStyle(option.option_type)}/>
                     </TableCell>
                     <TableCell>{option.quantity}</TableCell>
+                    <TableCell>{(option.bid + option.ask)/2}</TableCell>
                     <TableCell>{option.strike}</TableCell>
                     <TableCell>{expiry(option.expiration_date)}</TableCell>
                     <TableCell>{roundOne(option.greeks.smv_vol*100)}%</TableCell>
@@ -72,6 +74,7 @@ const Positions = props => {
                       <Chip label={"shares"} />
                     </TableCell>
                     <TableCell>{props.quantity}</TableCell>
+                    <TableCell>{(props.quote.ask + props.quote.bid)/2}</TableCell>
                     <TableCell>--</TableCell>
                     <TableCell>--</TableCell>
                     <TableCell>--</TableCell>

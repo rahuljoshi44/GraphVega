@@ -61,18 +61,22 @@ class Main extends Component {
   }
 
   handleRemovePosition= idx => {
-    const position = clone(this.state.positions[idx]);
-    if(position.position === 'long') 
-      position.quantity = position.quantity - 1;
-    else
-      position.quantity = position.quantity + 1;
+    // const position = clone(this.state.positions[idx]);
+    // if(position.position === 'long') 
+    //   position.quantity = position.quantity - 1;
+    // else
+    //   position.quantity = position.quantity + 1;
 
-    var positions = [...this.state.positions];
-    if(position.quantity == 0)
-      positions.splice(idx, 1);
-    else
-      positions[idx] = position;
-    this.setState({positions});
+    // var positions = [...this.state.positions];
+    // if(position.quantity == 0)
+    //   positions.splice(idx, 1);
+    // else
+    //   positions[idx] = position;
+    // this.setState({positions});
+    // const positions = clone(this.state.positions);
+    const positions = [...this.state.positions];
+    positions.splice(idx, 1);
+    this.setState({ positions });
   }
 
   handleChangeTabs = value => {

@@ -19,8 +19,6 @@ import {
 } from "../../utils/date";
 import LineChart from './lineChart';
 import Positions from './positions';
-import ReplayIcon from '@material-ui/icons/Replay';
-
 
 class Analysis extends Component {
   constructor(props) {
@@ -39,7 +37,7 @@ class Analysis extends Component {
   componentDidUpdate(prevProps, prevState) {
     if(this.props !== prevProps) {
       console.log("Calculating...")
-      const originalIV = avgVolatility(this.props.positions, this.props.quote) * 100;
+      const originalIV = this.roundOne(avgVolatility(this.props.positions, this.props.quote) * 100);
       var date = new Date();
       date.setHours(21,0,0,0);
       date = date.toString();
@@ -61,6 +59,9 @@ class Analysis extends Component {
       date = getCurrentDate();
       this.setState({ chartData, originalIV, iv:originalIV, maxDateNum, date, ivChange:0 });
     }
+  }
+  roundOne = (num) => {
+    return Math.round((num + Number.EPSILON) * 10)/10;
   }
 
   setChartData = (arr) => {
@@ -108,14 +109,18 @@ class Analysis extends Component {
   render() {
     return(
       <>
-        <Positions positions={this.props.positions} quantity={this.props.quantity}/>
+        <Positions 
+          positions={this.props.positions}
+          quantity={this.props.quantity}
+          quote={this.props.quote}
+        />
         <br />
         <Row>
           <Col sm={{span:5, offset:1}}>
             <Card>
               <CardContent>
                 <h6>
-                  Volatility: {this.state.iv}% (avg.)
+                  Volatility: {this.state.iv}% (avg: {this.state.originalIV}%) 
                 </h6>
                 <Slider 
                   defaultValue={this.state.originalIV}
