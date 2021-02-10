@@ -121,7 +121,7 @@ class Analysis extends Component {
             <Card>
               <CardContent>
                 <h6>
-                  Volatility: {this.state.iv}% (avg: {this.state.originalIV}%) 
+                  Implied volatility: {this.state.iv}% (avg: {this.state.originalIV}%) 
                 </h6>
                 <Slider 
                   defaultValue={this.state.originalIV}

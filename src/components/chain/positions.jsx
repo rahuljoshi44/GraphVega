@@ -75,11 +75,6 @@ const Positions = props => {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          {/* <Button variant="primary" onClick={handleClose}>
-            <b>
-              Chart
-            </b>
-          </Button> */}
         </Modal.Footer>
       </Modal>
     </>

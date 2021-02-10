@@ -3,12 +3,7 @@ import {
   Row,
   Col,
   Container,
-  Image
 } from 'react-bootstrap';
-import {
-  Card,
-  CardContent,
-} from '@material-ui/core';
 import Search from './search';
 import Quote from './quote';
 import OptionChain from './chain/optionChain';
@@ -124,17 +119,13 @@ class Main extends Component {
         <br />
         <Row>
           <Col sm={{span:12}}>
-            <Card>
-              <CardContent>
-                <Quote 
-                  quote={this.state.quote} 
-                  quantity={this.state.quantity}
-                  onStockQuantityChange={this.handleStockQuantityChange}
-                  addStock={this.handleAddStock}
-                  removeStock={this.handleRemoveStock}
-                />
-              </CardContent>
-            </Card>
+            <Quote 
+              quote={this.state.quote} 
+              quantity={this.state.quantity}
+              onStockQuantityChange={this.handleStockQuantityChange}
+              addStock={this.handleAddStock}
+              removeStock={this.handleRemoveStock}
+            />
           </Col>
         </Row>
         <br />
@@ -150,16 +141,12 @@ class Main extends Component {
         <Row>
           <Col sm={{span:12}}>
             <div style={{display:this.display()}}>
-              <Card>
-                <CardContent >
-                  <OptionChain 
-                    quote={this.state.quote} 
-                    positions={this.state.positions}
-                    onAddPosition={this.handleAddPosition}
-                    onRemovePosition={this.handleRemovePosition} 
-                  />  
-                </CardContent>
-              </Card>
+              <OptionChain 
+                quote={this.state.quote} 
+                positions={this.state.positions}
+                onAddPosition={this.handleAddPosition}
+                onRemovePosition={this.handleRemovePosition} 
+              />  
             </div>
             {this.state.positions[0]?
             <div style={{display:this.display2()}}>

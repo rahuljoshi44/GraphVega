@@ -3,13 +3,18 @@ import {
   Row,
   Col,
 } from 'react-bootstrap';
+import {
+  LinearProgress,
+  CircularProgress,
+  Card,
+  CardContent,
+} from '@material-ui/core';
 import Expiries from './expiries';
 import EditLayout from './editLayout';
 import OptionTable from './optionTable';
 import Positions from './positions';
 import axios from 'axios';
 import clone from 'clone';
-import PolynomialRegression from 'js-polynomial-regression';
 
 class OptionChain extends Component {
   constructor(props) {
@@ -89,7 +94,9 @@ class OptionChain extends Component {
 
   render() {
     return(
-      <>
+      <Card>
+        {this.state.loading ? <LinearProgress /> : ""}
+        <CardContent>
         <Row>
           <Col sm={{span:3}}>
             <Expiries 
@@ -121,8 +128,8 @@ class OptionChain extends Component {
             />
           </Col>
         </Row>
-       
-      </>
+        </CardContent>
+      </Card>
     )
   }
 }
