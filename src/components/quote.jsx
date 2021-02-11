@@ -12,6 +12,7 @@ import {
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 
+// React function to display stock quote. 
 const Quote = props => {
 
   const setColor = () => {

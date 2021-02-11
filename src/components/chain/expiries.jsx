@@ -14,7 +14,6 @@ class Expiries extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // console.log(this.props);
     if(this.props.symbol !== prevProps.symbol) {
       this.getOptionExpiries(this.props.symbol);
     }

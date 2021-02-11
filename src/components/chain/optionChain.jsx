@@ -5,7 +5,6 @@ import {
 } from 'react-bootstrap';
 import {
   LinearProgress,
-  CircularProgress,
   Card,
   CardContent,
 } from '@material-ui/core';

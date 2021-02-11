@@ -18,12 +18,20 @@ class Main extends Component {
       positions:[],
       tab: 0, //0 for chain, 1 for analysis page
   }
+  /**
+   * Triggered when new stock is selected from search bar.
+   * @param {Object} value: Object returned from search bar 
+   */
   handleTickerChange = value => {
     this.getQuote(value.symbol);
     this.setState({ quote:{}, positions:[], tab:0, quantity:0 });
   }
 
-  // Get stock quote. @param symbol: stock symbol (ticker)
+  /**
+   * Function used to get the quote of a stock. Called when new stock
+   * is selected from search bar.
+   * @param {String} symbol: ticker of the stock 
+   */
   getQuote = (symbol) => {
     this.setState({ quoteLoading: true }, () => {
       const url = 'http://localhost:8000/api/stocks/quote';
@@ -37,7 +45,12 @@ class Main extends Component {
         });
     });
   };
+  
 
+  /**
+   * Function to add an option to the positions[] object
+   * @param {Object} option Options object to add to positions[]
+   */
   handleAddPosition = (option) => {
     var positions = [...this.state.positions];
     var found = false;
@@ -54,50 +67,53 @@ class Main extends Component {
     this.setState({positions});
   }
 
+  /**
+   * Function to remove an options from positions[]
+   * @param {Integer} idx remove object at index 'idx' from positions[]
+   */
   handleRemovePosition= idx => {
-    // const position = clone(this.state.positions[idx]);
-    // if(position.position === 'long') 
-    //   position.quantity = position.quantity - 1;
-    // else
-    //   position.quantity = position.quantity + 1;
-
-    // var positions = [...this.state.positions];
-    // if(position.quantity == 0)
-    //   positions.splice(idx, 1);
-    // else
-    //   positions[idx] = position;
-    // this.setState({positions});
-    // const positions = clone(this.state.positions);
     const positions = [...this.state.positions];
     positions.splice(idx, 1);
     this.setState({ positions });
   }
 
+  /**
+   * Function handles switching tabs between OptionChain and Analysis
+   * @param {Integer} value: sets tab to value  
+   */
   handleChangeTabs = value => {
     if(value != this.state.tab) {
       this.setState({tab:value});
     }
   }
 
-  handleStockQuantityChange = (event, value) => {
+  /**
+   * Adds quantity to/from stock.
+   * @param {Object} event: triggered by adding/removing stock  
+   */
+  handleStockQuantityChange = (event) => {
     var quantity = Number(event.target.value);
     this.setState({quantity})
   }
 
+  // Adds 1 stock (increments quantity by 1.) 
   handleAddStock = () => {
     const quantity = this.state.quantity? this.state.quantity + 1 : 1;
     this.setState({quantity});
   }
 
+  // Removes 1 stock (decrements quantity by 1.) 
   handleRemoveStock = () => {
     const quantity = this.state.quantity? this.state.quantity - 1 : -1;
     this.setState({quantity});
   }
 
+  // decides whether OptionChain component will be displayed or not
   display = () => {
     return this.state.tab === 0 ? "block" : "none";
   }
 
+  // decides whether Analysis component is displayed or not.
   display2 = () => {
     return this.state.tab === 1? "block" : "none";
   }

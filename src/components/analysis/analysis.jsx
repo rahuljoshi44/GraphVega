@@ -20,6 +20,7 @@ import {
 import LineChart from './lineChart';
 import Positions from './positions';
 
+// Component that handles analysis of options positions
 class Analysis extends Component {
   constructor(props) {
     super(props);
