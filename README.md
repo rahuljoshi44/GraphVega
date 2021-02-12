@@ -1,3 +1,8 @@
+<p align="center">
+ <img src="https://github.com/rahuljoshi44/GraphVega/blob/master/public/vega.png" width="200">
+ <h1 align="center"> GraphVega </h1>
+</p>
+
 ## About The Project
 GraphVega is an open sourced options analytics platform that analyses and projects the P/L of a multi-legged options position with variation of the stock price under changes in volatility and days till expiration, using a black-scholes simulation.  
 
