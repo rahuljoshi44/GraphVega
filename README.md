@@ -1,7 +1,7 @@
 <p align="center">
  <img src="https://github.com/rahuljoshi44/GraphVega/blob/master/public/vega.png" width="200">
  <h1 align="center"> GraphVega  
- <img src="https://img.shields.io/badge/License-MIT-yellow.svg">
+<!--  <img src="https://img.shields.io/badge/License-MIT-yellow.svg"> -->
  </h1>
 </p>
 
