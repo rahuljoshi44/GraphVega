@@ -28,6 +28,8 @@ TRADIER_API_KEY = YOUR_API_KEY_HERE
 ```
 npm start
 ```
+Note that the front end react app runs on `http://localhost:3000` while the server runs on `http://localhost:8000` so make sure you don't have anything running on those ports.
+How to
 ## Usage
 1. After launching the app, type in the name of a company in the search bar and select the appropriate suggestion.
 2. Select an expiration date for the options chain
