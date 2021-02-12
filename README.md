@@ -54,7 +54,12 @@ There are three main front end components
 - [Rahul Joshi](https://www.linkedin.com/in/rahuljoshi4/)
 
 ## License
-This project is licensed under the MIT License. 
+GraphVega is distributed under the MIT license. See `LICENSE.md` for more information.
+
+## Contact
+Rahul Joshi - rjoshi9@umd.edu
+
+Feel free to contact me regarding any concerns about the app.
 
 ## Acknowledgements
 Thanks to [Tradier](https://tradier.com/) for the market data used on the platform.
