@@ -21,12 +21,11 @@ $ https://github.com/rahuljoshi44/GraphVega.git
 $ npm install
 ```
 3. Get a free API Key (for sandbox) from Tradier [here](https://developer.tradier.com/user/sign_up?_ga=2.9691381.1305307848.1613100396-1783872143.1609733953). This project uses tradier's market data API for options and stock prices.
-4. In the root directory create a `.env` file
-5. Enter your API key in `.env`
+4. In the root directory create a `.env` file and enter your API key as follows:
 ```
 TRADIER_API_KEY = YOUR_API_KEY_HERE
 ```
-6. Run the application.
+5. Run the application.
 ```
 $ npm start
 ```
