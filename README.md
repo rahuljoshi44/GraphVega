@@ -1,7 +1,7 @@
 <p align="center">
  <img src="https://github.com/rahuljoshi44/GraphVega/blob/master/public/vega.png" width="200">
  <h1 align="center"> GraphVega </h1>
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]
 </p>
 
 ## About The Project
