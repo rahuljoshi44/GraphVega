@@ -50,14 +50,11 @@ There are three main front end components
 - [react-bootstrap](https://react-bootstrap.github.io/) - Front end component library
 - [recharts](https://recharts.org/en-US/) - Charting library
 
-## Authors
-- [Rahul Joshi](https://www.linkedin.com/in/rahuljoshi4/)
-
 ## License
 GraphVega is distributed under the MIT license. See `LICENSE.md` for more information.
 
 ## Contact
-Rahul Joshi - rjoshi9@umd.edu
+[Rahul Joshi](https://www.linkedin.com/in/rahuljoshi4/) - rjoshi9@umd.edu
 
 Feel free to contact me regarding any concerns about the app.
 
