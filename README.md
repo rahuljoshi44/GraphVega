@@ -23,3 +23,38 @@ TRADIER_API_KEY = YOUR_API_KEY_HERE
 ```
 npm start
 ```
+## Usage
+1. After launching the app, type in the name of a company in the search bar and select the appropriate suggestion.
+2. Select an expiration date for the options chain
+3. After the option chain loads, add your options positions by clicking on the rows of the table.
+4. Switch to the analysis tab.
+5. Observe the P/L chart and adjust the implied volatility and days till expiry with the sliders as you like.
+
+## Code structure
+Broadly, the project is divided into the front end and the back end.
+ - All frontend files are stored in the `src` directory.
+ - Backend files are stored in `server`. These are used primarily for making API calls to for market data.
+ 
+There are three main front end components
+ - `src/components/main.jsx` is the root component that uses `optionChain.jsx` and `analysis.jsx` 
+ - `src/components/chain/optionChain.jsx` is the base component for all 'Option Chain' tab
+    - All files related to the option chain tab is stored under `src/components/chain`
+ - `src/components/analysis/analysis.jsx` is the base component for the 'Analysis' tab
+    - All files related to the analysis tab are stored under `src/components/analysis`
+  
+## Built With
+- [React.js](https://reactjs.org/) - Front end library
+- [Node.js](https://nodejs.org/en/) - Runtime environment for JS
+- [Express.js](https://expressjs.com/) - Web framework for NodeJS
+- [Material-UI](https://material-ui.com/) - Front end component library
+- [react-bootstrap](https://react-bootstrap.github.io/) - Front end component library
+- [recharts](https://recharts.org/en-US/) - Charting library
+
+## Authors
+- [Rahul Joshi](https://www.linkedin.com/in/rahuljoshi4/)
+
+## License
+This project is licensed under the MIT License. 
+
+## Acknowledgements
+Thanks to [Tradier](https://tradier.com/) for the market data used on the platform.
