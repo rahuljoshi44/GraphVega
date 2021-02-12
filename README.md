@@ -14,11 +14,11 @@ It is designed with a goal to provide a simple and intuitive interface to analyz
 To get GraphVega up and running on your local machine, follow these steps:
 1. Clone the repository
 ```
-https://github.com/rahuljoshi44/GraphVega.git
+$ https://github.com/rahuljoshi44/GraphVega.git
 ```
 2. Switch to the root directory of the project and install the dependencies
 ```
-npm install
+$ npm install
 ```
 3. Get a free API Key (for sandbox) from Tradier [here](https://developer.tradier.com/user/sign_up?_ga=2.9691381.1305307848.1613100396-1783872143.1609733953). This project uses tradier's market data API for options and stock prices.
 4. In the root directory create a `.env` file
@@ -28,7 +28,7 @@ TRADIER_API_KEY = YOUR_API_KEY_HERE
 ```
 6. Run the application.
 ```
-npm start
+$ npm start
 ```
 Note that the front end react app runs on `http://localhost:3000` while the server runs on `http://localhost:8000` so make sure you don't have anything running on those ports.
 How to
