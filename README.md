@@ -4,11 +4,15 @@
  <img src="https://img.shields.io/badge/License-MIT-yellow.svg">
  </h1>
 </p>
-
+ 
 ## About The Project
 GraphVega is an open sourced options analytics platform that analyses and projects the P/L of a multi-legged options position with variation of the stock price under changes in volatility and days till expiration, using a black-scholes simulation.  
 
 It is designed with a goal to provide a simple and intuitive interface to analyze options, while also providing developers with the flexibility to add their own custom features.
+
+<p align="center" style="box-shadow: 2px 2px 2px black;">
+  <img src="./media/demo-1.png" width="600">
+</p>
 
 ## Getting Started
 To get GraphVega up and running on your local machine, follow these steps:
@@ -30,13 +34,18 @@ TRADIER_API_KEY = YOUR_API_KEY_HERE
 $ npm start
 ```
 Note that the front end react app runs on `http://localhost:3000` while the server runs on `http://localhost:8000` so make sure you don't have anything running on those ports.
-How to
+
 ## Usage
+<p align="center" style="box-shadow: 2px 2px 2px black;">
+  <img src="./media/graphvega-adding-positions.gif" width="600">
+</p>
+
 1. After launching the app, type in the name of a company in the search bar and select the appropriate suggestion.
 2. Select an expiration date for the options chain
 3. After the option chain loads, add your options positions by clicking on the rows of the table.
 4. Switch to the analysis tab.
 5. Observe the P/L chart and adjust the implied volatility and days till expiry with the sliders as you like.
+
 
 ## Code structure
 Broadly, the project is divided into the front end and the back end.
