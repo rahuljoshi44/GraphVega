@@ -11,7 +11,7 @@ GraphVega is an open sourced options analytics platform that analyses and projec
 It is designed with a goal to provide a simple and intuitive interface to analyze options, while also providing developers with the flexibility to add their own custom features.
 
 <p align="center" style="box-shadow: 2px 2px 2px black;">
-  <img src="./media/demo-1.png" width="600">
+  <img src="./media/demo-1.png" width="550">
 </p>
 
 ## Getting Started
@@ -37,7 +37,7 @@ Note that the front end react app runs on `http://localhost:3000` while the serv
 
 ## Usage
 <p align="center" style="box-shadow: 2px 2px 2px black;">
-  <img src="./media/graphvega-adding-positions.gif" width="600">
+  <img src="./media/graphvega-adding-positions.gif" width="550">
 </p>
 
 1. After launching the app, type in the name of a company in the search bar and select the appropriate suggestion.
