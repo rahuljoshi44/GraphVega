@@ -54,7 +54,7 @@ steps:
 
 5.  Run the application.
 
-#### Locally
+### Locally
 
     $ npm start
 
@@ -64,9 +64,12 @@ anything running on those ports.
 
 ### Docker
 
+Make sure to create the `.env` file from step 4 above before building the
+image, otherwise it won't be included.
+
 Building:
 
-    $ docker build -t local/gv:latest -t local/gv:0.1.0
+    $ docker build -t local/gv:latest -t local/gv:0.1.0 .
 
 Running:
 
