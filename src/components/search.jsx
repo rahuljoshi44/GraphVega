@@ -18,11 +18,8 @@ class Search extends Component {
 
 	// triggers every time a user changes the input value
 	handleInputValueChange = (event, value) => {
-    const url = 'http://localhost:8000/api/stocks/search';
-    //Work in progress
-    /*
     var url = 'http://localhost:8000/api/stocks/';
-    var regExp = /\([^)]*\)|\[[^\]]*\]/g;  //TODO: simplify regex to remove [] support
+    var regExp = /\([^)]*\)/g;
     var matchTest = value.match(regExp);
     if (!!matchTest) {
       url += "lookup";
@@ -30,22 +27,25 @@ class Search extends Component {
     } else {
       url += "search"; //default to search
     }
-    */
     this.setState({ loading: true }, () => {
       axios
         .post(url, {
           ticker: value,
         })
         .then((res) => {
-          var options = [];
+          var options;          
           if (res.data.securities && res.data.securities.security) {
-            options.push(res.data.securities.security);
             if (res.data.securities.security.length) {
-              const upper = options.length > 10? 10: options.length - 1;
-              options = options.slice(0, upper);
+              options = res.data.securities.security;
             } else {
-              options = options.slice(0, 1);
-            }
+              options = [];
+              options.push(res.data.securities.security);
+              options.length = 1; 
+            }            
+            const upper = options.length > 10? 10: options.length > 1? options.length - 1: 1;
+            options = options.slice(0, upper);
+            console.log(options)            
+            console.log("desc: " + options[0].description + "\nsym: " + options[0].symbol);
             this.setState({ options, loading: false });
           } else {
             this.setState({ options: [], loading: false });
@@ -75,13 +75,13 @@ class Search extends Component {
           </>
         )}
         getOptionLabel={(option) => option.description}
+        getOptionSelected={(option, value) => option.description === value.description }
         onChange={this.valueChange}
         onInputChange={this.handleInputValueChange}
         renderInput={(params) => (
           <TextField 
             {...params} 
-            label='Search company'
-            //label='Search by Company Name or (Symbol)'  //Work in progress
+            label='Search by Company Name or (Symbol)'
             autoFocus={true}
             InputProps={{
               ...params.InputProps,
