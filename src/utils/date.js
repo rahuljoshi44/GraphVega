@@ -1,7 +1,7 @@
-const parseDate = (str) => {
-  var mdy = str.split('-');
-  return new Date(mdy[2], mdy[0]-1, mdy[1]);
-}
+// const parseDate = (str) => {
+//   var mdy = str.split('-');
+//   return new Date(mdy[2], mdy[0]-1, mdy[1]);
+// }
 
 export const daysTillExpiry = (date1, date2) => {
   const firstDate = new Date(date1);

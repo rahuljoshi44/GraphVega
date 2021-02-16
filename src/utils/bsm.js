@@ -45,7 +45,7 @@ export const netProfitArray = (positions, quote, quantity, date, ivChange) => {
     }
   }
   // add stock P/L if present.
-  if(quantity != 0) {
+  if(quantity !== 0) {
     netProfit = netProfit.map(obj => (
       {
         underlying: obj.underlying,

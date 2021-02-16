@@ -66,16 +66,16 @@ class OptionChain extends Component {
   
   handleAddPosition = (idx, optionType, positionType, quantity) => {
     var option = {};
-    var options = [];
+    // var options = [];
 
     // Find option
     if(optionType==="call"){
       option = clone(this.state.calls[idx]);
-      options = this.state.calls;
+      // options = this.state.calls;
     }
     else {
       option = clone(this.state.puts[idx]);
-      options = this.state.puts;
+      // options = this.state.puts;
     }
 
     // Set position -> Long/Short

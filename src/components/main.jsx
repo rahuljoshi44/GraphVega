@@ -82,7 +82,7 @@ class Main extends Component {
    * @param {Integer} value: sets tab to value  
    */
   handleChangeTabs = value => {
-    if(value != this.state.tab) {
+    if(value !== this.state.tab) {
       this.setState({tab:value});
     }
   }

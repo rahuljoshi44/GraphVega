@@ -68,7 +68,7 @@ const Positions = props => {
                     <TableCell>{option.greeks.gamma}</TableCell>
                   </TableRow>
                 ))}
-                {(props.quantity && props.quantity != 0) ? 
+                {(props.quantity && props.quantity !== 0) ? 
                   <TableRow>
                     <TableCell>
                       <Chip label={"shares"} />

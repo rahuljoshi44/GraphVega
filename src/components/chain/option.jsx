@@ -35,10 +35,6 @@ const Option = props => {
     setQuantity(0);
   };
 
-  const setAlign = () => {
-    return props.option["option_type"] === "put" ? "right" : "left";
-  };
-
   const getColor = () => {
     return props.option.change >= 0 ? "text-success" : "text-danger";
   };
@@ -47,14 +43,14 @@ const Option = props => {
     return props.option.change > 0 ? "+" : "";
   };
 
-  const setBackground = () => {
-    if(props.option.option_type === "put"){
-      return props.option.strike > props.quote.last ? "#E0EBFD":"white";
-    }
-    else{
-      return props.option.strike > props.quote.last ? "white": "#E0EBFD";
-    }
-  };
+  // const setBackground = () => {
+  //   if(props.option.option_type === "put"){
+  //     return props.option.strike > props.quote.last ? "#E0EBFD":"white";
+  //   }
+  //   else{
+  //     return props.option.strike > props.quote.last ? "white": "#E0EBFD";
+  //   }
+  // };
 
   const setBorder = idx => {
     if(props.option.option_type==="put" && idx == props.layout.length-1) {
