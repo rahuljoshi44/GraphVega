@@ -42,7 +42,6 @@ class Search extends Component {
               const emptySecurity = JSON.parse('{"symbol":"","exchange":"","type":"","description":""}');
               const data = Object.assign({}, res.data);
               data.securities.security = []; 
-              //const element = JSON.parse(JSON.stringify(res.data.securities));
               data.securities.security.push(resSecurity);
               data.securities.security.push(emptySecurity);
               options = data.securities.security;
