@@ -9,4 +9,5 @@ COPY --from=build-env /graphvega /graphvega
 
 WORKDIR /graphvega
 EXPOSE 3000
+EXPOSE 8000
 ENTRYPOINT ["npm", "start"]
