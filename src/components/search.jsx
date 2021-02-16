@@ -48,36 +48,12 @@ class Search extends Component {
             }
             const upper = options.length > 10? 10: options.length > 1? options.length - 1: 1;
             options = options.slice(0, upper);
-            //console.log(options)
-            //console.log("desc: " + options[0].description + "\nsym: " + options[0].symbol);
             this.setState({ options, loading: false });
           } else {
             this.setState({ options: [], loading: false });
           }
       });
     })
-//       this.setState({ loading: true });
-//       const res = await axios.post(url, { ticker: value, });
-//       var options;
-//       if (res.data.securities && res.data.securities.security) {
-//         if (res.data.securities.security.length) {
-//           options = res.data.securities.security;
-//         } else {
-//           options = [];
-//           options.push(res.data.securities.security);
-//           options.length = 1;
-//         }
-//         const upper =
-//           options.length > 10
-//             ? 10
-//             : options.length > 1
-//             ? options.length - 1
-//             : 1;
-//         options = options.slice(0, upper);
-//         this.setState({ options, loading: false });
-//       } else {
-//         this.setState({ options: [], loading: false });
-//       }
     } catch (err) {
       toast.error(err.response?.data?.error || "Something went wrong! Please try again later.");
     } finally {

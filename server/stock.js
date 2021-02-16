@@ -28,7 +28,7 @@ router.post("/search", async (req, res) => {
         if (body == "Invalid Access Token") {
           throw new Error("Invalid Access Token");
         }
-        console.log(body)
+        // console.log(body)
         res.send(body);
       } catch (err) {
         return res.status(500).json({ error: err.toString() });
@@ -63,7 +63,7 @@ router.post("/lookup", async (req, res) => {
         if (body == "Invalid Access Token") {
           throw new Error("Invalid Access Token");
         }
-        console.log(body)
+        // console.log(body)
         res.send(body);
       } catch (err) {
         return res.status(500).json({ error: err.toString() });
