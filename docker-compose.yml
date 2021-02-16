@@ -4,6 +4,7 @@ services:
     build: .
     ports:
       - '3000:3000'
+      - '8000:8000'
     volumes:
       - ./:/var/www      
       - node_modules:/var/www/node_modules
