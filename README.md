@@ -39,9 +39,10 @@ To get GraphVega up and running on your local machine, follow these steps:
     `$ git clone  https://github.com/rahuljoshi44/GraphVega.git`
 
 2.  Switch to the root directory of the project (main folder where all the files are stored) and install the
-    dependencies
+    dependencies. This process might take a couple minutes depending on your download speed, so please wait!
     
     `$ npm install`
+    
 
 3.  Get a free API Key (for sandbox) from Tradier
     [here](https://developer.tradier.com/user/sign_up?_ga=2.9691381.1305307848.1613100396-1783872143.1609733953).
