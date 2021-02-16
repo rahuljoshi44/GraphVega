@@ -30,8 +30,9 @@ to add their own custom features.
 
 ## Getting Started
 
-To get GraphVega up and running on your local machine, follow these
-steps:
+Note: You will need to have NodeJS installed on your machine to run this app. If you don't have it on your machine already, you can install it [here](https://nodejs.org/en/download/) for free.
+
+To get GraphVega up and running on your local machine, follow these steps:
 
 1.  Clone the repository
     
