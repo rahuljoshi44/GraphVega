@@ -25,29 +25,59 @@ class Search extends Component {
     } else {
       url += "search"; //default to search
     }
+
     try {
-      this.setState({ loading: true });
-      const res = await axios.post(url, { ticker: value, });
-      var options;
-      if (res.data.securities && res.data.securities.security) {
-        if (res.data.securities.security.length) {
-          options = res.data.securities.security;
-        } else {
-          options = [];
-          options.push(res.data.securities.security);
-          options.length = 1;
-        }
-        const upper =
-          options.length > 10
-            ? 10
-            : options.length > 1
-            ? options.length - 1
-            : 1;
-        options = options.slice(0, upper);
-        this.setState({ options, loading: false });
-      } else {
-        this.setState({ options: [], loading: false });
-      }
+      this.setState({ loading: true }, () => {
+      axios
+        .post(url, {
+          ticker: value,
+        })
+        .then((res) => {
+          var options;   
+          if (res.data.securities && res.data.securities.security) {
+            if (res.data.securities.security.length) {
+              options = res.data.securities.security;
+            } else {
+              const resSecurity = JSON.parse(JSON.stringify(res.data.securities.security));
+              const emptySecurity = JSON.parse('{"symbol":"","exchange":"","type":"","description":""}');
+              const data = Object.assign({}, res.data);
+              data.securities.security = []; 
+              data.securities.security.push(resSecurity);
+              data.securities.security.push(emptySecurity);
+              options = data.securities.security;
+            }
+            const upper = options.length > 10? 10: options.length > 1? options.length - 1: 1;
+            options = options.slice(0, upper);
+            //console.log(options)
+            //console.log("desc: " + options[0].description + "\nsym: " + options[0].symbol);
+            this.setState({ options, loading: false });
+          } else {
+            this.setState({ options: [], loading: false });
+          }
+      });
+    })
+//       this.setState({ loading: true });
+//       const res = await axios.post(url, { ticker: value, });
+//       var options;
+//       if (res.data.securities && res.data.securities.security) {
+//         if (res.data.securities.security.length) {
+//           options = res.data.securities.security;
+//         } else {
+//           options = [];
+//           options.push(res.data.securities.security);
+//           options.length = 1;
+//         }
+//         const upper =
+//           options.length > 10
+//             ? 10
+//             : options.length > 1
+//             ? options.length - 1
+//             : 1;
+//         options = options.slice(0, upper);
+//         this.setState({ options, loading: false });
+//       } else {
+//         this.setState({ options: [], loading: false });
+//       }
     } catch (err) {
       toast.error(err.response?.data?.error || "Something went wrong! Please try again later.");
     } finally {
@@ -66,10 +96,7 @@ class Search extends Component {
     return (
       <Autocomplete
         options={this.state.options}
-        renderOption={(
-          option,
-          { selected } //TODO: Symbol search still not populating dropdown with options array
-        ) => (
+        renderOption={(option, { selected }) => (
           <>
             {option.description}&nbsp;
             <div className="text-secondary">({option.symbol})</div>
@@ -81,6 +108,7 @@ class Search extends Component {
         }
         onChange={this.valueChange}
         onInputChange={this.handleInputValueChange}
+        filterOptions={(x) => x}
         renderInput={(params) => (
           <TextField
             {...params}
