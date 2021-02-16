@@ -100,23 +100,19 @@ Stopping:
 
 ## Code structure
 
-Broadly, the project is divided into the front end and the back end. -
-All frontend files are stored in the `src` directory. - Backend files
-are stored in `server`. These are used primarily for making API calls to
-for market data.
+Broadly, the project is divided into the front end and the back end. 
+- All frontend files are stored in the `src` directory.
+- Backend files are stored in `server`. These are used primarily for making API calls for market data.
 
 There are three main front end components
-
   - `src/components/main.jsx` is the root component that uses
     `optionChain.jsx` and `analysis.jsx`
   - `src/components/chain/optionChain.jsx` is the base component for the
     ‘Option Chain’ tab
-  - All files related to the option chain tab is stored under
-    `src/components/chain`
+    - All files related to the option chain tab is stored under `src/components/chain`
   - `src/components/analysis/analysis.jsx` is the base component for the
     ‘Analysis’ tab
-  - All files related to the analysis tab are stored under
-    `src/components/analysis`
+     - All files related to the analysis tab are stored under `src/components/analysis`
 
 ## Contributing
 
