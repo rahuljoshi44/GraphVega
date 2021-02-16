@@ -36,13 +36,15 @@ To get GraphVega up and running on your local machine, follow these steps:
 
 1.  Clone the repository
     
-    `$ git clone  https://github.com/rahuljoshi44/GraphVega.git`
+    ```
+    $ git clone  https://github.com/rahuljoshi44/GraphVega.git
+    ```
 
 2.  Switch to the root directory of the project (main folder where all the files are stored) and install the
     dependencies. This process might take a couple minutes depending on your download speed, so please wait!
-    
-    `$ npm install`
-    
+    ```
+    $ npm install
+    ```
 
 3.  Get a free API Key (for sandbox) from Tradier
     [here](https://developer.tradier.com/user/sign_up?_ga=2.9691381.1305307848.1613100396-1783872143.1609733953).
@@ -51,8 +53,9 @@ To get GraphVega up and running on your local machine, follow these steps:
 
 4.  In the root directory  create a `.env` file and enter your API key as
     follows:
-    
-    `TRADIER_API_KEY = YOUR_API_KEY_HERE`
+    ```
+    TRADIER_API_KEY = YOUR_API_KEY_HERE
+    ```
 
 5.  Run the application in either of two ways: Locally or via Docker (explained below):
 
