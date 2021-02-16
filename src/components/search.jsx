@@ -18,29 +18,46 @@ class Search extends Component {
 
 	// triggers every time a user changes the input value
 	handleInputValueChange = (event, value) => {
-		const url = 'http://localhost:8000/api/stocks/search';
-		this.setState({ loading: true }, () => {
-			axios
-				.post(url, {
-					ticker: value,
-				})
-				.then((res) => {
-					if (res.data.securities && res.data.securities.security[0]) {
-            var options = res.data.securities.security;
-            const upper = options.length > 10? 10: options.length - 1;
-            options = options.slice(0, upper);
-            console.log(options)
-						this.setState({ options, loading: false });
-					} else {
-						this.setState({ options: [], loading: false });
+    const url = 'http://localhost:8000/api/stocks/search';
+    //Work in progress
+    /*
+    var url = 'http://localhost:8000/api/stocks/';
+    var regExp = /\([^)]*\)|\[[^\]]*\]/g;  //TODO: simplify regex to remove [] support
+    var matchTest = value.match(regExp);
+    if (!!matchTest) {
+      url += "lookup";
+      value = value.replace(/[()]/g, '');  //removing parentheses
+    } else {
+      url += "search"; //default to search
+    }
+    */
+    this.setState({ loading: true }, () => {
+      axios
+        .post(url, {
+          ticker: value,
+        })
+        .then((res) => {
+          var options = [];
+          if (res.data.securities && res.data.securities.security) {
+            options.push(res.data.securities.security);
+            if (res.data.securities.security.length) {
+              const upper = options.length > 10? 10: options.length - 1;
+              options = options.slice(0, upper);
+            } else {
+              options = options.slice(0, 1);
+            }
+            this.setState({ options, loading: false });
+          } else {
+            this.setState({ options: [], loading: false });
           }
-			});
-		})
+      });
+    })
+    
   };
     
   // triggers every time a user selects an option from suggestions
 	valueChange = (event, value) => {
-		if (!(value === null)) {
+		if (value !== null) {
       this.props.onValueChange(value);
     }
   };
@@ -49,9 +66,9 @@ class Search extends Component {
     return(
       <Autocomplete
         options={
-          this.state.options[0] === null ? [] : this.state.options
+          this.state.options
         }
-        renderOption={(option, { selected }) => (
+        renderOption={(option, { selected }) => (   //TODO: Symbol search still not populating dropdown with options array
           <>
             {option.description}&nbsp;
             <div className='text-secondary'>({option.symbol})</div>
@@ -64,6 +81,7 @@ class Search extends Component {
           <TextField 
             {...params} 
             label='Search company'
+            //label='Search by Company Name or (Symbol)'  //Work in progress
             autoFocus={true}
             InputProps={{
               ...params.InputProps,
@@ -76,7 +94,7 @@ class Search extends Component {
             }}
           />
         )}
-      />       
+      />
     )
   }
 }
