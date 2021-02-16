@@ -1,0 +1,11 @@
+version: "2"
+services:
+  app:
+    build: .
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./:/var/www      
+      - node_modules:/var/www/node_modules
+volumes:
+  node_modules:

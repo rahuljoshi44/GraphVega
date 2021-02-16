@@ -52,7 +52,7 @@ To get GraphVega up and running on your local machine, follow these steps:
 4.  In the root directory  create a `.env` file and enter your API key as
     follows:
     
-    `TRADIER_API_KEY = YOUR_API_KEY_HERE`
+    `TRADIER_API_KEY=YOUR_API_KEY_HERE`
 
 5.  Run the application in either of two ways: Locally or via Docker (explained below):
 
@@ -80,6 +80,23 @@ Running:
 Stopping:
 
     $ docker stop graphvega
+
+### Docker-Compose
+
+Make sure to create the `.env` file from step 4 above before building the
+image, otherwise it won't be included.
+
+Running:
+
+    $ docker-compose up
+
+    or 
+
+    $ docker-compose run
+
+Stopping:
+
+    $ docker-compose down
 
 ## Usage
 
