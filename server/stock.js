@@ -32,7 +32,7 @@ router.post("/lookup", async (req, res) => {
   request(
     {
       method: "get",
-      url: "https://sandbox.tradier.com/v1/markets/lookup",
+      url: `${API_BASE_URL}markets/lookup`,
       qs: {
           q: req.body.ticker,
           exchanges: 'Q,N',
