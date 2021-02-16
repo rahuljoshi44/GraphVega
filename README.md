@@ -35,9 +35,9 @@ steps:
 
 1.  Clone the repository
     
-    $ https://github.com/rahuljoshi44/GraphVega.git
+    `$git clone  https://github.com/rahuljoshi44/GraphVega.git`
 
-2.  Switch to the root directory of the project and install the
+2.  Switch to the root directory of the project (main folder where all the files are stored) and install the
     dependencies
     
     `$ npm install`
@@ -47,12 +47,12 @@ steps:
     This project uses Tradier’s market data API for options and stock
     prices.
 
-4.  In the root directory create a `.env` file and enter your API key as
+4.  In the root directory  create a `.env` file and enter your API key as
     follows:
     
     `TRADIER_API_KEY = YOUR_API_KEY_HERE`
 
-5.  Run the application.
+5.  Run the application in either of two ways: Locally or via Docker (explained below):
 
 ### Locally
 
