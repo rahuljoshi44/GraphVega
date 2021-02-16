@@ -35,7 +35,7 @@ steps:
 
 1.  Clone the repository
     
-    `$git clone  https://github.com/rahuljoshi44/GraphVega.git`
+    `$ git clone  https://github.com/rahuljoshi44/GraphVega.git`
 
 2.  Switch to the root directory of the project (main folder where all the files are stored) and install the
     dependencies
@@ -107,7 +107,7 @@ There are three main front end components
 
   - `src/components/main.jsx` is the root component that uses
     `optionChain.jsx` and `analysis.jsx`
-  - `src/components/chain/optionChain.jsx` is the base component for all
+  - `src/components/chain/optionChain.jsx` is the base component for the
     ‘Option Chain’ tab
   - All files related to the option chain tab is stored under
     `src/components/chain`
@@ -115,6 +115,17 @@ There are three main front end components
     ‘Analysis’ tab
   - All files related to the analysis tab are stored under
     `src/components/analysis`
+
+## Contributing
+
+Your contributions make the project better and more useful to everyone! The contributions you make will be greatly appreciated. 
+
+To do so:
+1. Fork the project
+2. Create a branch
+3. Add your changes
+4. Push to the branch
+5. Open a Pull Request.
 
 ## Built With
 
