@@ -21,7 +21,7 @@ import {
 
 const LineChart = (props) => {
 
-  const data = props.data ? props.data : [];
+  const data = props.data || [];
 
   const gradientOffset = () => {
     const dataMax = Math.max(...data.map((i) => i.profit));
