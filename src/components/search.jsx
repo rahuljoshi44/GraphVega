@@ -48,8 +48,8 @@ class Search extends Component {
             }
             const upper = options.length > 10? 10: options.length > 1? options.length - 1: 1;
             options = options.slice(0, upper);
-            console.log(options)
-            console.log("desc: " + options[0].description + "\nsym: " + options[0].symbol);
+            //console.log(options)
+            //console.log("desc: " + options[0].description + "\nsym: " + options[0].symbol);
             this.setState({ options, loading: false });
           } else {
             this.setState({ options: [], loading: false });
@@ -61,7 +61,7 @@ class Search extends Component {
   // triggers every time a user selects an option from suggestions
 	valueChange = (event, value) => {
 		if (value !== null) {
-      console.log(value);
+      //console.log(value);
       this.props.onValueChange(value);
     }
   };
@@ -70,7 +70,7 @@ class Search extends Component {
     return(
       <Autocomplete
         options={this.state.options}
-        renderOption={(option, { selected }) => (   //TODO: Symbol search still not populating dropdown with options array
+        renderOption={(option, { selected }) => ( 
           <>
             {option.description}&nbsp;
             <div className='text-secondary'>({option.symbol})</div>
@@ -80,6 +80,7 @@ class Search extends Component {
         getOptionSelected={(option, value) => option.description === value.description }
         onChange={this.valueChange}
         onInputChange={this.handleInputValueChange}
+        filterOptions={(x) => x}
         renderInput={(params) => (
           <TextField 
             {...params} 
