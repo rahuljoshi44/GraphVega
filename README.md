@@ -56,6 +56,8 @@ To get GraphVega up and running on your local machine, follow these steps:
     
     `TRADIER_API_KEY=YOUR_API_KEY_HERE`
 
+    NOTE: You can also add an optional variable: `TRADIER_API_BASE_URL=BASE_API_URL` if you'd like to use the brokerage API endpoint.
+
 5.  Run the application in either of two ways: Locally or via Docker (explained below):
 
 ### Locally
