@@ -11,7 +11,7 @@ GraphVega
 
 </p>
 
-## About The Project
+## :gem: About The Project
 
 GraphVega is an open sourced options analytics platform that analyses
 and projects the P/L of a multi-legged options position with variation
