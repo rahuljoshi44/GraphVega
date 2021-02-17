@@ -28,7 +28,7 @@ to add their own custom features.
 
 </p>
 
-## Getting Started
+## :rocket: Getting Started
 
 **Note**: You will need to have NodeJS installed on your machine to run this app. If you don't have it on your machine already, you can install it [here](https://nodejs.org/en/download/) for free.
 
@@ -102,7 +102,7 @@ Stopping:
 
     $ docker-compose down
 
-## Usage
+## :zap: Usage
 
 <p align="center" style="box-shadow: 2px 2px 2px black;">
 
@@ -119,7 +119,7 @@ Stopping:
 5.  Observe the P/L chart and adjust the implied volatility and days
     till expiry with the sliders as you like.
 
-## Code structure
+## :palm_tree: Code structure
 
 Broadly, the project is divided into the front end and the back end. 
 - All frontend files are stored in the `src` directory.
@@ -135,7 +135,7 @@ There are three main front end components
     ‘Analysis’ tab
      - All files related to the analysis tab are stored under `src/components/analysis`
 
-## Contributing
+## :heart: Contributing
 
 Your contributions make the project better and more useful to everyone! The contributions you make will be greatly appreciated. 
 
@@ -146,7 +146,7 @@ To do so:
 4. Push to the branch
 5. Open a Pull Request.
 
-## Built With
+## :pencil2: Built With
 
   - [React.js](https://reactjs.org/) - Front end library
   - [Node.js](https://nodejs.org/en/) - Runtime environment for JS
@@ -157,19 +157,19 @@ To do so:
     component library
   - [recharts](https://recharts.org/en-US/) - Charting library
 
-## License
+## :clipboard: License
 
 GraphVega is distributed under the MIT license. See `LICENSE.md` for
 more information.
 
-## Contact
+## :mailbox_with_mail: Contact
 
 [Rahul Joshi](https://www.linkedin.com/in/rahuljoshi4/) -
 rjoshi9@umd.edu
 
 Feel free to contact me regarding any concerns about the app.
 
-## Acknowledgements
+## :punch: Acknowledgements
 
 Thanks to [Tradier](https://tradier.com/) for the market data used on
 the platform.
