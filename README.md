@@ -159,7 +159,7 @@ To do so:
 
 ## :clipboard: License
 
-GraphVega is distributed under the MIT license. See `LICENSE.md` for
+GraphVega is distributed under the **MIT** license. See `LICENSE.md` for
 more information.
 
 ## :mailbox_with_mail: Contact
