@@ -137,7 +137,7 @@ There are three main front end components
 
 ## :heart: Contributing
 
-Your contributions make the project better and more useful to everyone! The contributions you make will be greatly appreciated. 
+Your contributions make the platform better and more useful to everyone! The contributions you make will be greatly appreciated. 
 
 To do so:
 1. Fork the project
