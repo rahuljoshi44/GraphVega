@@ -11,7 +11,8 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  Chip
+  Chip,
+  Typography
 } from '@material-ui/core';
 
 const chipStyle = type => {
@@ -35,7 +36,9 @@ const Positions = props => {
       <Col sm={{span:12}}>
         <Card>
           <CardContent>
-            <h5>Positions</h5>
+          <Typography variant="h6" display="block" gutterBottom>
+            Positions
+          </Typography>
             <Table>
               <TableHead>
                 <TableRow>

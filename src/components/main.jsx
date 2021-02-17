@@ -9,6 +9,8 @@ import Quote from './quote';
 import OptionChain from './chain/optionChain';
 import Analysis from './analysis/analysis';
 import NavTabs from './navTabs';
+import QuoteSkeleton from './skeletons/quoteSkeleton';
+import TabsSkeleton from './skeletons/tabsSkeleton';
 import axios from 'axios';
 
 class Main extends Component {
@@ -135,20 +137,25 @@ class Main extends Component {
         <br />
         <Row>
           <Col sm={{span:12}}>
+            {this.state.quote.symbol ? 
             <Quote 
-              quote={this.state.quote} 
-              quantity={this.state.quantity}
-              onStockQuantityChange={this.handleStockQuantityChange}
-              addStock={this.handleAddStock}
-              removeStock={this.handleRemoveStock}
-            />
+            quote={this.state.quote} 
+            quantity={this.state.quantity}
+            onStockQuantityChange={this.handleStockQuantityChange}
+            addStock={this.handleAddStock}
+            removeStock={this.handleRemoveStock}
+          />: <QuoteSkeleton />}
+            
           </Col>
         </Row>
         <br />
         <Row>
           <Col sm={{span:4, offset:4}}>
             <center>
-            <NavTabs onChangeTabs={this.handleChangeTabs}/> 
+              {this.state.quote.symbol ?
+                <NavTabs onChangeTabs={this.handleChangeTabs}/>
+                : <TabsSkeleton />
+              }
             </center>
           </Col>
         </Row>

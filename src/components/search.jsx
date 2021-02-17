@@ -71,6 +71,7 @@ class Search extends Component {
   render() {
     return (
       <Autocomplete
+        loading={this.state.loading}
         options={this.state.options}
         renderOption={(option, { selected }) => (
           <>

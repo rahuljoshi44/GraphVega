@@ -31,6 +31,7 @@ router.post("/search", async (req, res) => {
         // console.log(body)
         res.send(body);
       } catch (err) {
+        console.log(err)
         return res.status(500).json({ error: err.toString() });
       }
     }
@@ -66,6 +67,7 @@ router.post("/lookup", async (req, res) => {
         // console.log(body)
         res.send(body);
       } catch (err) {
+        console.log(err)
         return res.status(500).json({ error: err.toString() });
       }
     }
@@ -91,6 +93,8 @@ router.post("/quote", async (req, res) => {
     },
     (error, response, body) => {
       // console.log(body);
+      console.log(error)
+
       res.send(body);
     }
   );

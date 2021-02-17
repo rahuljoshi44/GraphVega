@@ -20,7 +20,7 @@ const NavTabs = props => {
   };
 
   return (
-    <Paper className={classes.root}>
+    <Paper>
       <Tabs
         value={value}
         onChange={handleChange}

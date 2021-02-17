@@ -10,7 +10,8 @@ import {
 } from "recharts";
 import {
   Card,
-  CardContent
+  CardContent,
+  Typography
 } from '@material-ui/core';
 import {
   Row,
@@ -44,17 +45,17 @@ const LineChart = (props) => {
       <CardContent>
         <Row>
           <Col sm={{span:12}}>
-            <h5>
+            <Typography variant="h6" display="block" gutterBottom>
               Profit & Loss Chart
-            </h5>
+            </Typography>
           </Col>
         </Row>
         
         <Row>
           <Col sm={{span:12}} >
             <AreaChart
-              height={600}
-              width={900}
+              height={520}
+              width={860}
               data={data}
               margin={{ top: 20, right: 0, left: 0, bottom: 0 }}
             >

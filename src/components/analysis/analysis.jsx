@@ -7,6 +7,7 @@ import {
   Slider,
   Card,
   CardContent,
+  Typography,
 } from '@material-ui/core';
 import {
   avgVolatility,
