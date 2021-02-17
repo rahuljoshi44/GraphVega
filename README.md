@@ -61,6 +61,7 @@ To get GraphVega up and running on your local machine, follow these steps:
 5.  Run the application in either of two ways: Locally or via Docker (explained below):
 
 ### Locally
+In the root directory, run the following command:
 
     $ npm start
 
