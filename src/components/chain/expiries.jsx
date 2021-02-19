@@ -46,7 +46,7 @@ class Expiries extends Component {
   render() {
     return(
       <Autocomplete
-        noOptionsText={"Select an underlying from the search!"}
+        noOptionsText={"Select an underlying from the search first!"}
         options={this.state.expirations}
         getOptionLabel={(option) => option}
         onChange={this.valueChange}

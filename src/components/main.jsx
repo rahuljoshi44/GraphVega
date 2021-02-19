@@ -152,10 +152,7 @@ class Main extends Component {
         <Row>
           <Col sm={{span:4, offset:4}}>
             <center>
-              {this.state.quote.symbol ?
-                <NavTabs onChangeTabs={this.handleChangeTabs}/>
-                : <TabsSkeleton />
-              }
+              <NavTabs onChangeTabs={this.handleChangeTabs}/>
             </center>
           </Col>
         </Row>

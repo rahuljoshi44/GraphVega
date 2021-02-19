@@ -11,7 +11,9 @@ import {
   AccordionSummary,
   AccordionDetails,
   Grid,
-  Typography
+  Typography,
+  Select,
+  MenuItem,
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMoreOutlined';
 import Expiries from './expiries';
@@ -19,6 +21,7 @@ import EditLayout from './editLayout';
 import OptionTable from './optionTable';
 import Positions from './positions';
 import IVSkewChart from './ivSkewChart';
+import GreeksChart from './greeksChart';
 import axios from 'axios';
 import clone from 'clone';
 
@@ -28,9 +31,12 @@ class OptionChain extends Component {
     this.state = {
       symbol: "",
       expiry:"",
+      greeksChart: "calls",
       calls: [],
       puts: [],
       ivSkewData: [],
+      callGreeksData: [],
+      putGreeksData: [],
       layout: ["bid", "ask", "last"],
       loading: false,
       displayTable: false,
@@ -61,19 +67,35 @@ class OptionChain extends Component {
           const calls = options.filter(option => {
             return option.option_type === "call";
           });
-          var ivSkewData = [];
+          var ivSkewData = [], callGreeksData = [], putGreeksData=[];
 
           calls.forEach((call, idx) => {
             ivSkewData.push({
               strike: call.strike,
               iv: call.greeks.smv_vol,
+            });
+            callGreeksData.push({
+              strike: call.strike,
+              delta: this.round(call.greeks.delta),
+              gamma: this.round(call.greeks.gamma),
+              theta: this.round(call.greeks.theta),
+              vega: this.round(call.greeks.vega),
+            });
+            putGreeksData.push({
+              strike: call.strike,
+              delta: this.round(puts[idx].greeks.delta),
+              gamma: this.round(puts[idx].greeks.gamma),
+              theta: this.round(puts[idx].greeks.theta),
+              vega: this.round(puts[idx].greeks.vega),
             })
           })
-          // console.log(ivSkewData);
+          // console.log(greeksData);
           this.setState({ 
             puts, 
             calls,
             ivSkewData, 
+            callGreeksData,
+            putGreeksData,
             loading:false, 
             displayTable: true, 
             expiry, 
@@ -89,16 +111,13 @@ class OptionChain extends Component {
   
   handleAddPosition = (idx, optionType, positionType, quantity) => {
     var option = {};
-    // var options = [];
 
     // Find option
     if(optionType==="call"){
       option = clone(this.state.calls[idx]);
-      // options = this.state.calls;
     }
     else {
       option = clone(this.state.puts[idx]);
-      // options = this.state.puts;
     }
 
     // Set position -> Long/Short
@@ -112,6 +131,11 @@ class OptionChain extends Component {
     option.expiration_date = dateTime.toString();
     
     this.props.onAddPosition(option);
+  }
+
+  handleGreeksChartChange = (event) => {
+    const greeksChart = event.target.value;
+    this.setState({ greeksChart })
   }
   
   accChange = () => {
@@ -152,9 +176,8 @@ class OptionChain extends Component {
           </Row>
         </CardContent>
       </Card>
-      
       <br />
-      <Accordion expanded={this.state.displayTable} onChange={this.accChange}>
+      <Accordion expanded={this.state.displayTable} onChange={this.accChange} >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
         >
@@ -177,17 +200,14 @@ class OptionChain extends Component {
                 onAddPosition={this.handleAddPosition}
               />
               }
-              
             </Grid>
           </Grid>
         </AccordionDetails>
       </Accordion>
-      <br />
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
         >
-          {/* <h5>Implied Volatility Skew</h5> */}
           <Typography variant="h6" display="block" gutterBottom>
             Implied Volatility Skew
           </Typography>
@@ -212,6 +232,55 @@ class OptionChain extends Component {
           </Grid>
         </AccordionDetails>
       </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+        >
+          <Typography variant="h6" display="block" gutterBottom>
+            Greeks
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Grid container>
+            <Grid item sm={4}></Grid>
+            <Grid item sm={4}>
+              {!this.state.calls[0]? "" : 
+              <center>
+                <Select
+                  value={this.state.greeksChart}
+                  onChange={this.handleGreeksChartChange}
+                >
+                  <MenuItem value={"calls"}>calls</MenuItem>
+                  <MenuItem value={"puts"}>puts</MenuItem>
+                </Select>
+              </center>
+              }
+            </Grid>
+            <Grid item sm={4}></Grid>
+            {!this.state.calls[0] ? this.errorMessage() :
+              <>
+                <Grid item sm={1}></Grid>
+                <Grid item sm={10}>
+                  <br />
+                  <center>
+                    <h6>Greeks for&nbsp;
+                      <div style={{color:"royalblue", display:"inline"}}>
+                        {this.state.symbol} {this.state.expiry} 
+                      </div>
+                      &nbsp;expiry option chain (rounded to 2 places)</h6>
+                  </center>
+                  <GreeksChart
+                    data={this.state.greeksChart == "calls" ? 
+                      this.state.callGreeksData :
+                      this.state.putGreeksData}
+                  />
+                </Grid>
+              </>
+            }
+          </Grid>
+        </AccordionDetails>
+      </Accordion>
+      <br />
       </>
     )
   }
