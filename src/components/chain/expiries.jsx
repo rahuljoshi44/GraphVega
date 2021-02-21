@@ -4,6 +4,7 @@ import {
 } from '@material-ui/core';
 import { Autocomplete } from '@material-ui/lab';
 import axios from 'axios';
+import { getServerUrl } from "../../utils/bsm";
 
 class Expiries extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class Expiries extends Component {
   getOptionExpiries = symbol => {
     if(symbol) {
       axios
-        .post("http://localhost:8000/api/options/expiries", {
+        .post(`${getServerUrl()}/api/options/expiries`, {
           symbol: symbol
         })
         .then((res) => {

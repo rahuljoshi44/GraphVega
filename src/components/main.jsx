@@ -12,6 +12,7 @@ import NavTabs from './navTabs';
 import QuoteSkeleton from './skeletons/quoteSkeleton';
 import TabsSkeleton from './skeletons/tabsSkeleton';
 import axios from 'axios';
+import { getServerUrl } from "../utils/bsm";
 
 class Main extends Component {
   state = {
@@ -36,7 +37,7 @@ class Main extends Component {
    */
   getQuote = (symbol) => {
     this.setState({ quoteLoading: true }, () => {
-      const url = 'http://localhost:8000/api/stocks/quote';
+      const url = `${getServerUrl()}/api/stocks/quote`;
       axios
         .post(url, {
           ticker: symbol,

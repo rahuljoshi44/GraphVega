@@ -3,6 +3,7 @@ import { TextField, CircularProgress } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
 import { toast } from "react-toastify";
 import axios from 'axios';
+import { getServerUrl } from "../utils/bsm";
 
 class Search extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class Search extends Component {
 
   // triggers every time a user changes the input value
   handleInputValueChange = async (event, value) => {
-    var url = "http://localhost:8000/api/stocks/";
+    var url = `${getServerUrl()}/api/stocks/`;
     var regExp = /\([^)]*\)/g;
     var matchTest = value.match(regExp);
     if (!!matchTest) {
