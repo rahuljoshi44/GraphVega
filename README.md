@@ -120,7 +120,7 @@ Stopping:
 5.  Observe the P/L chart and adjust the implied volatility and days
     till expiry with the sliders as you like.
 
-## :palm_tree: Code structure
+## :palm_tree: Code Structure
 
 Broadly, the project is divided into the front end and the back end. 
 - All frontend files are stored in the `src` directory.
