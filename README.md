@@ -51,12 +51,14 @@ To get GraphVega up and running on your local machine, follow these steps:
     This project uses Tradier’s market data API for options and stock
     prices.
 
-4.  In the root directory  create a `.env` file and enter your API key as
+4.  In the root directory  create a `.env` file and enter your API key and the API url as
     follows:
-    
-    `TRADIER_API_KEY=YOUR_API_KEY_HERE`
-
-    NOTE: You can also change the variable: `API_BASE_URL` to the brokerage API url if you'd like to use the brokerage API endpoint.
+    ```
+    TRADIER_API_KEY=YOUR_API_KEY_HERE
+    API_BASE_URL=https://sandbox.tradier.com/v1/
+    ```
+    Replace `YOUR_API_KEY_HERE` with the API key you obtained from step 3.
+    NOTE: You can also change the variable `API_BASE_URL` to the brokerage API url if you'd like to use the brokerage API endpoint.
 
 5.  Run the application in either of two ways: Locally or via Docker (explained below):
 
