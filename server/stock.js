@@ -40,7 +40,6 @@ router.post("/search", async (req, res) => {
 
 // Lookup based on symbol
 router.post("/lookup", async (req, res) => {
-  const KEY = process.env.TRADIER_API_KEY;
   request(
     {
       method: "get",
@@ -51,7 +50,7 @@ router.post("/lookup", async (req, res) => {
         types: "stock",
       },
       headers: {
-        Authorization: `Bearer  ${KEY}`,
+        Authorization: `Bearer  ${API_KEY}`,
         Accept: "application/json",
       },
     },
@@ -77,7 +76,6 @@ router.post("/lookup", async (req, res) => {
 // get quote of a company using symbol.
 router.post("/quote", async (req, res) => {
   const symbol = req.body.ticker;
-
   request(
     {
       method: "get",

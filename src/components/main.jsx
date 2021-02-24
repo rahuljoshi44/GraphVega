@@ -10,9 +10,8 @@ import OptionChain from './chain/optionChain';
 import Analysis from './analysis/analysis';
 import NavTabs from './navTabs';
 import QuoteSkeleton from './skeletons/quoteSkeleton';
-import TabsSkeleton from './skeletons/tabsSkeleton';
 import axios from 'axios';
-import { getServerUrl } from "../utils/bsm";
+import { SERVER_URL } from '../utils/url';
 
 class Main extends Component {
   state = {
@@ -37,7 +36,8 @@ class Main extends Component {
    */
   getQuote = (symbol) => {
     this.setState({ quoteLoading: true }, () => {
-      const url = `${getServerUrl()}/api/stocks/quote`;
+      const url = `${SERVER_URL}/api/stocks/quote`;
+      console.log(url);
       axios
         .post(url, {
           ticker: symbol,

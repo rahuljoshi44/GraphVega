@@ -3,12 +3,6 @@ import bs from "black-scholes";
 import iv from "implied-volatility";
 import {daysTillExpiry, getCurrentDate} from './date';
 
-// Return the server url from env file. If not provided, use http://localhost:8000
-// https://stackoverflow.com/a/49108323/4671953
-export const getServerUrl = () => {
-  return process.env.REACT_APP_SERVER_URL;
-}
-
 // Set end point of the chart as 30% above the stock price
 const getHigh = (price, high) => {
   return price + price/3;

@@ -5,7 +5,7 @@ const { API_KEY, API_BASE_URL } = require('./config');
 
 router.post("/expiries", async(req,res) => {
   const symbol = req.body.symbol;
-  
+
   request({
     method: 'get',
     url: `${API_BASE_URL}markets/options/expirations`,

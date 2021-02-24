@@ -90,7 +90,6 @@ const Positions = props => {
                 }
               </TableBody>
             </Table>
-            {/* SHARES OWNED: {props.quantity} */}
           </CardContent>
         </Card>
       </Col>
