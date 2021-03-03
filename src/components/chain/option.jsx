@@ -53,12 +53,12 @@ const Option = props => {
   // };
 
   const setBorder = idx => {
-    if(props.option.option_type==="put" && idx == props.layout.length-1) {
+    if(props.option.option_type==="put" && idx === props.layout.length-1) {
       const style = {};
       style.borderRight = props.option.strike > props.quote.last ? "6px solid #3f51b5":"";
       return style;
     }
-    else if (props.option.option_type==="call" && idx == 0){
+    else if (props.option.option_type==="call" && idx === 0){
       const style = {};
       style.borderLeft = props.option.strike < props.quote.last ? "10px solid #3f51b5":"";
       return style;
@@ -221,7 +221,7 @@ const Option = props => {
             color={setButtonColor()}
             variant="outlined"
             size="small"
-            disabled={quantity==0}
+            disabled={quantity===0}
             onClick={() => add()}
           >
             {quantity >= 0 ? "Buy" : "Sell"}

@@ -272,7 +272,7 @@ class OptionChain extends Component {
                       &nbsp;expiry option chain (rounded to 2 places)</h6>
                   </center>
                   <GreeksChart
-                    data={this.state.greeksChart == "calls" ? 
+                    data={this.state.greeksChart === "calls" ? 
                       this.state.callGreeksData :
                       this.state.putGreeksData}
                   />
